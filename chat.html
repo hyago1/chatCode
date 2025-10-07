@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Raleway:wght@100&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/0744e628fa.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./css/styles.css">
+
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js" integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO" crossorigin="anonymous"></script>
+
+
+
+
+  <title>Chat</title>
+</head>
+
+
+
+<script>
+
+</script>
+
+<body id="body" onunload="alert('The page is unloaded')">
+
+  <header class="header">
+    <div id="infoContacts" class="infoContacts">
+      <button id="contact" onclick="openChat()" title="Contatos">Contatos</button>
+
+    </div>
+
+    <h2>chat
+    </h2>
+
+    <div class="infoCode">
+      <span>code </span>
+      <span id="code"></span>
+    </div>
+
+
+    <div class="login">
+      <div id="avatar"></div>
+      <div id="option">
+
+        <button onclick="logoutGoogle()" id="logout">Sair <i
+            class="fa-solid fa-arrow-right-from-bracket fa-2xs"></i></button>
+
+      </div>
+
+
+
+      <button onclick="longinGoogle()" id="login"><img width="30" height="30"
+          src="./btn_google_light_normal_xxxhdpi.9.png" alt="login-rounded-right--v1" /><span>sign</span></button>
+
+    </div>
+
+  </header>
+
+  <div id="area_Menssage" onclick="closeMenu()" class="area_Menssage">
+    <ul id="list_ul">
+
+    </ul>
+  </div>
+
+
+
+
+  <div class="group_msgt">
+    <div id="imagePreview" style="display: none;">
+      <button class="deleteImageFile" onclick="deleteImg()">x</button>
+      <img style="width: 85%;
+      height: 85%; border-radius: 20%;" id="blah" alt="">
+    </div>
+
+    <div>
+      <input class="msgt" type="text" id="box_Msg" placeholder="Digite aqui" name="menssage" id="menssage" />
+
+      <label for='file'>
+
+        <i class="fa-solid fa-arrow-up-from-bracket fa-xs"></i></label>
+      <input type="file" name="" id="file">
+      <button class="msgt" id="btn" type="button" value=">" onclick="send()"><img src="./sendIcon.png" alt=""
+          srcset=""></button>
+    </div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+
+  <script src="https://unpkg.com/@supabase/supabase-js"></script>
+  <script src="./scripts/script.js"></script>
+
+
+
+
+</body>
+
+</html>
