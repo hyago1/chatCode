@@ -21,3 +21,7 @@ O projeto permite que usuários criem salas de chat privadas utilizando um códi
 - HTML5
 - CSS3
 - JavaScript
+
+
+
+![alt text](image.png)
