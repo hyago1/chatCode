@@ -155,7 +155,7 @@ const updatePage = async () => {
       let datamsg = value.datamsg;
 
         list.innerHTML += `<li>
-    <img id='imgProfileMenssage' src='${value.imgProfile}'></img>
+
     <div class="ball_msg">
     <div class='info_details'>  
 
