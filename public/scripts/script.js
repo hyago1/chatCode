@@ -3,7 +3,6 @@ const socket = io();
 
 
 window.HTMLElement.prototype.scrollIntoView = function () { };
-// Create a single supabase client for interacting with your database
 
 //variaveis
 var msg = [];
@@ -52,53 +51,14 @@ fileSelector.addEventListener('change', (event) => {
   <i class="fa-solid fa-file fa-2x" style='margin-right:10px'></i> ${" " + fileList.name}</label>`
   }
 
-
-
 });
 
 let valueid
 
-document.addEventListener('touchmove', function (e) {
-  var x = e.touches[0].clientX;
-  console.log(x);
-  if (x > 15 && x < 30) {
-    openChat()
-    x = null
-  }
-});
 
 var selected = false
 
-
-
-function getHour() {
-  let hour = new Date().getHours();
-  let minutes = new Date().getMinutes();
-  let time = hour + ":" + minutes;
-  return time;
-}
-
-
 let codeCheck = false;
-
-
-
-async function enterRoom() {
-  const { error } = await _supabase.from("salas").insert({ key_room: code });
-
-}
-
-
-async function init() {
-
-  const { data, error } = await _supabase
-    .from("mensages")
-    .select()
-    .eq("key_room_message", code).order('id', { ascending: true });
-
-
-  return data;
-}
 
 function typeMenssage(value, up, msg) {
   let message
@@ -184,8 +144,6 @@ function typeMenssage(value, up, msg) {
 
 const updatePage = async () => {
 
-  console.log("Code>>>> " + code);
-
   if (code != undefined || code != "NaN" || code != null) {
     console.log(msg);
 
@@ -195,41 +153,7 @@ const updatePage = async () => {
 
       let formatedTime = value.created_at.slice(0, 5);
       let datamsg = value.datamsg;
-      if (value.file == false) {
 
-        if (
-          value.datamsg.startsWith("http://") ||
-          value.datamsg.startsWith("https://") ||
-          value.datamsg.startsWith("www.")
-        ) {
-          datamsg = `<a href='${value.datamsg}'>${value.datamsg}</a>`;
-        }
-
-      }
-
-      if (value.file == true) {
-        list.innerHTML += `<li>
-  <img id='imgProfileMenssage' src='${value.imgProfile}'></img>
-  <div class="ball_msg">
-  <div class='info_details'>  
-
-  <span id="nickname_ball_msg">${value[index].remetente}</span>
-
-      <button id='delete'alt='Deletar mensagem' onclick='delet(${value.id})'>X</button>
-  
-      </div>
-
-      <div class='info' > 
-      <span class="msg">
-      ${typeMenssage(value[index].typeFile, true, value[index].msg)}
-      <span id='hour'>${formatedTime}</span>
-      
-      </div>
-     
-  </div>
-  </li>`;
-
-      } else {
         list.innerHTML += `<li>
     <img id='imgProfileMenssage' src='${value.imgProfile}'></img>
     <div class="ball_msg">
@@ -250,7 +174,7 @@ const updatePage = async () => {
     </div>
     </li>`;
 
-      }
+  
     });
 
   }
